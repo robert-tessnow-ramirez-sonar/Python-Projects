@@ -19,6 +19,24 @@ def check_guess(guess, answer):
     print("The correct answer is:", answer)
     return 0
 
+def check_guess_part_2(guess, answer):
+    """
+    Checks the user's guess against the correct answer.
+    Allows up to 3 attempts.
+    Returns 1 if correct, 0 otherwise.
+    """
+    attempt = 0
+    while attempt < 3:
+        if guess.lower().strip() == answer.lower():
+            print("✅ Correct Answer!")
+            return 1  # increment score
+        else:
+            attempt += 1
+            if attempt < 3:
+                guess = input("❌ Wrong answer. Try again: ").strip()
+    print("The correct answer is:", answer)
+    return 0
+
 def main():
     """
     Main game function. Loops through all questions and calculates the total score.
